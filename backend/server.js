@@ -22,4 +22,33 @@ async function startServer() {
     });
 }
 
+// GET /departments
+app.get("/departments", (req, res) => {
+    const sql = "SELECT * FROM departments";
+    db.query (sql, (error, results) => {
+        if(error) {
+            console.error("error getting departments:", error);
+            return res.status(500).json({
+                error: "Failed to get Departments"
+            });
+        }
+        res.json(results);
+    });
+});
+
+// Get /users - returns all users (password excluded)
+app.get("/users", (req, res) => {
+    const sql = "SELECT id, first_name, last_name, email, role, department_id FROM users";
+    db.query (sql, (error, results) => {
+        if(error){
+            console.error("error getting users:", error);
+            return res.status(500).json({
+                error: "Failed to get users"
+            });
+        }
+        res.json(results);
+    });
+});
+
+
 startServer();
