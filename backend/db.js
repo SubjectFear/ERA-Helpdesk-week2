@@ -12,7 +12,7 @@ db.connect(error => {
     if(error){
         console.error("MySQL connection error", error);
     } else {
-        console.log("Connected to MySQL - Helpdask_db");
+        console.log("Connected to MySQL - Helpdesk_db");
     }
 });
 

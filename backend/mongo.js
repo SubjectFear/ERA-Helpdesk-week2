@@ -5,7 +5,7 @@ let db;
 
 async function connectMongo() {
     await client.connect();
-    db=client.db("helpdask_db");
+    db=client.db("helpdesk_db");
     console.log("Connected to MongoDB-helpdesk_db");
 }
 function getMongo(){
